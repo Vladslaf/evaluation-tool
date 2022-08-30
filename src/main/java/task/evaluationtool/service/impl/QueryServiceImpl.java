@@ -17,13 +17,14 @@ public class QueryServiceImpl implements QueryService {
         String date = params[4];
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
         LocalDate dateFrom;
-        Optional<LocalDate> dateTo = Optional.empty();
+        Optional<LocalDate> dateTo;
         if (date.contains("-")) {
             dateFrom = LocalDate.parse(date.substring(0, date.indexOf("-")), formatter);
             dateTo = Optional.ofNullable(LocalDate.parse(date.substring(date.indexOf("-") + 1), formatter));
         } else {
             dateFrom = LocalDate.parse(date, formatter);
+            dateTo = Optional.empty();
         }
-        return new Query(params[1], params[2], params[3], dateFrom, dateTo);
+        return new Query(params[1], params[2], params[3], dateFrom, dateTo, Integer.parseInt(params[5]));
     }
 }

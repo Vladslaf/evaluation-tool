@@ -8,21 +8,15 @@ public class WaitingTimeline {
     private String responseType;
     private LocalDate date;
     private int time;
+    private int line;
 
-    public WaitingTimeline(String service, String question, String responseType, LocalDate date, int time) {
+    public WaitingTimeline(String service, String question, String responseType, LocalDate date, int time, int line) {
         this.service = service;
         this.question = question;
         this.responseType = responseType;
         this.date = date;
         this.time = time;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
+        this.line = line;
     }
 
     public String getService() {
@@ -41,19 +35,11 @@ public class WaitingTimeline {
         return date;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public int getTime() {
+        return time;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public void setResponseType(String responseType) {
-        this.responseType = responseType;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public int getLine() {
+        return line;
     }
 }
