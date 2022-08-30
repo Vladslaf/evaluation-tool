@@ -12,9 +12,9 @@ public class WaitingTimelineServiceImpl implements WaitingTimelineService {
     @Override
     public WaitingTimeline parse(String timeLine) {
         String[] params = timeLine.split(" ");
-        String date = params[3];
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String date = params[4];
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
         return new WaitingTimeline(params[1], params[2], params[3],
-                LocalDate.parse(date, formatter));
+                LocalDate.parse(date, formatter), Integer.parseInt(params[5]));
     }
 }

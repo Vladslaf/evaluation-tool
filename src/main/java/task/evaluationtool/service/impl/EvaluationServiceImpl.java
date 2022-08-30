@@ -1,5 +1,6 @@
 package task.evaluationtool.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,21 @@ public class EvaluationServiceImpl implements EvaluationService {
         StringBuilder builder = new StringBuilder();
         for (Query q: queries) {
             int time = 0;
-            for (WaitingTimeline timeline: timelines) {
-
+            int count = 0;
+            for (WaitingTimeline t: timelines) {
+                if (q.getService().equals("*") || t.getService().startsWith(q.getService())
+                    && q.getQuestion().equals("*") || t.getService().startsWith(q.getService())
+                    && q.getResponseType().equals(t.getResponseType())
+                    && t.getDate().isAfter(q.getDateFrom())
+                    && t.getDate().isBefore(q.getDateTo().orElse(LocalDate.MAX))) {
+                    count++;
+                    time += t.getTime();
+                }
             }
             if (builder.length() != 0) {
                 builder.append(System.lineSeparator());
             }
+            builder.append(count == 0 ? "-": time / count);
         }
         return builder.toString();
     }

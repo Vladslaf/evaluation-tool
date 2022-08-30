@@ -7,12 +7,22 @@ public class WaitingTimeline {
     private String question;
     private String responseType;
     private LocalDate date;
+    private int time;
 
-    public WaitingTimeline(String service, String question, String responseType, LocalDate date) {
+    public WaitingTimeline(String service, String question, String responseType, LocalDate date, int time) {
         this.service = service;
         this.question = question;
         this.responseType = responseType;
         this.date = date;
+        this.time = time;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 
     public String getService() {

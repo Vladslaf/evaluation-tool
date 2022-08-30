@@ -1,17 +1,18 @@
 package task.evaluationtool.model;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class Query {
     private String service;
-    private String category;
+    private String question;
     private String responseType;
     private LocalDate dateFrom;
-    private LocalDate dateTo;
+    private Optional<LocalDate> dateTo;
 
-    public Query(String service, String category, String responseType, LocalDate dateFrom, LocalDate dateTo) {
+    public Query(String service, String question, String responseType, LocalDate dateFrom, Optional<LocalDate> dateTo) {
         this.service = service;
-        this.category = category;
+        this.question = question;
         this.responseType = responseType;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
@@ -33,12 +34,12 @@ public class Query {
         this.service = service;
     }
 
-    public String getCategory() {
-        return category;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public LocalDate getDateFrom() {
@@ -49,11 +50,11 @@ public class Query {
         this.dateFrom = dateFrom;
     }
 
-    public LocalDate getDateTo() {
+    public Optional<LocalDate> getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(LocalDate dateTo) {
+    public void setDateTo(Optional<LocalDate> dateTo) {
         this.dateTo = dateTo;
     }
 }
