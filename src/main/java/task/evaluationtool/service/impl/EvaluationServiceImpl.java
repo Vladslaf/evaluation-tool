@@ -29,7 +29,8 @@ public class EvaluationServiceImpl implements EvaluationService {
             for (WaitingTimeline t: timelines) {
                 if (t.getLine() < q.getLine()
                         && (q.getService().equals("*") || t.getService().startsWith(q.getService()))
-                        && (q.getQuestion().equals("*") || t.getQuestion().startsWith(q.getQuestion()))
+                        && (q.getQuestion().equals("*")
+                            || t.getQuestion().startsWith(q.getQuestion()))
                         && q.getResponseType().equals(t.getResponseType())
                         && t.getDate().isAfter(q.getDateFrom())
                         && t.getDate().isBefore(q.getDateTo().orElse(LocalDate.MAX))) {
@@ -40,7 +41,7 @@ public class EvaluationServiceImpl implements EvaluationService {
             if (builder.length() != 0) {
                 builder.append(System.lineSeparator());
             }
-            builder.append(count == 0 ? "-": time / count);
+            builder.append(count == 0 ? "-" : time / count);
         }
         return builder.toString();
     }

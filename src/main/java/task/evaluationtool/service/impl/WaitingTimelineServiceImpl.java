@@ -15,6 +15,7 @@ public class WaitingTimelineServiceImpl implements WaitingTimelineService {
         String date = params[4];
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy");
         return new WaitingTimeline(params[1], params[2], params[3],
-                LocalDate.parse(date, formatter), Integer.parseInt(params[5]), Integer.parseInt(params[6]));
+                LocalDate.parse(date, formatter), Integer.parseInt(params[5]),
+                Integer.parseInt(params[6]));
     }
 }

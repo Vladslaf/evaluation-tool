@@ -11,7 +11,8 @@ public class Query {
     private Optional<LocalDate> dateTo;
     private int line;
 
-    public Query(String service, String question, String responseType, LocalDate dateFrom, Optional<LocalDate> dateTo, int line) {
+    public Query(String service, String question, String responseType, LocalDate dateFrom,
+                 Optional<LocalDate> dateTo, int line) {
         this.service = service;
         this.question = question;
         this.responseType = responseType;

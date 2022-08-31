@@ -10,7 +10,8 @@ public class WaitingTimeline {
     private int time;
     private int line;
 
-    public WaitingTimeline(String service, String question, String responseType, LocalDate date, int time, int line) {
+    public WaitingTimeline(String service, String question, String responseType, LocalDate date,
+                           int time, int line) {
         this.service = service;
         this.question = question;
         this.responseType = responseType;

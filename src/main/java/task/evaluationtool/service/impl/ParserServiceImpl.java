@@ -1,15 +1,14 @@
 package task.evaluationtool.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import task.evaluationtool.model.Query;
 import task.evaluationtool.model.WaitingTimeline;
 import task.evaluationtool.service.ParserService;
 import task.evaluationtool.service.QueryService;
 import task.evaluationtool.service.WaitingTimelineService;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ParserServiceImpl implements ParserService {
