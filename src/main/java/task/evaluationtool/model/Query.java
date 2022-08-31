@@ -1,22 +1,23 @@
 package task.evaluationtool.model;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
-public class WaitingTimeline {
+public class Query {
     private String service;
     private String question;
     private String responseType;
-    private LocalDate date;
-    private int time;
+    private LocalDate dateFrom;
+    private Optional<LocalDate> dateTo;
     private int line;
 
-    public WaitingTimeline(String service, String question, String responseType, LocalDate date,
-                           int time, int line) {
+    public Query(String service, String question, String responseType, LocalDate dateFrom,
+                 Optional<LocalDate> dateTo, int line) {
         this.service = service;
         this.question = question;
         this.responseType = responseType;
-        this.date = date;
-        this.time = time;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
         this.line = line;
     }
 
@@ -32,12 +33,12 @@ public class WaitingTimeline {
         return responseType;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDateFrom() {
+        return dateFrom;
     }
 
-    public int getTime() {
-        return time;
+    public Optional<LocalDate> getDateTo() {
+        return dateTo;
     }
 
     public int getLine() {
